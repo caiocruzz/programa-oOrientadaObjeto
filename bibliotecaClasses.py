@@ -43,19 +43,19 @@ class Pessoa():
         if self.falando == True :
             print(f"{self.nome} ja está falando.")
         else:
-            self.falando == False
+            self.falando = False
 
     def pararDeComer(self):
-        if self.comendo() == True:
+        if self.comendo == True:
             print(f"{self.nome} está comendo.")
         else:
-            self.comendo() == False
+            self.comendo = False
 
     def acordar(self):
-        if self.dormindo() == True:
-            self.dormindo() == False
+        if self.dormindo == True:
             print(f"{self.nome} acordou ")
         else:
+            self.dormindo = False
             print(f"{self.nome} Foi dormir.")
 
 
@@ -77,25 +77,32 @@ class ContaBancaria():
     def saldoDaconta(self):
         if self.statusConta == True :
             print(f"Saldo da Conta:{self.saldoDaConta}")
-        elif self.statusConta == False:
+        else:
             print(f"Conta Inativa.")
 
     def depositar(self,deposito):
         if self.statusConta == True:
-            self.saldoDaconta = deposito + self.saldoDaConta
-            print(f"{self.saldoDaconta}")
+            self.saldoDaConta = deposito + self.saldoDaConta
+            print(f"Você fez um deposito de: R${deposito}")
         elif self.statusConta == False:
             print(f"Conta Inativa.")
 
-    def sacar(self,valor):
+    def sacar(self,saque):
         if self.statusConta == True :
-           self.saldoDaConta = self.saldoDaConta - valor
+           self.saldoDaConta = self.saldoDaConta - saque
+           print(f"Você realizou um saque no valor de: R${saque} Seu Saldo Atual é de: R${self.saldoDaConta}")
         else:
             print(f"Conta Inativa!")
 
     def ativarConta(self):
         if self.statusConta == True :
-            print(f"Sua conta está ativa. {self.saldoDaConta}")
+            print(f"Sua conta está ativa.")
         else:
             self.statusConta = True
-            print(f"Você ativou sua conta. {self.saldoDaConta}")
+            print(f"Você ativou sua conta.")
+
+    def desativarConta(self):
+        if self.saldoDaConta >0:
+            print(f"Você não pode desativar sua conta, pois seu saldo está positivo. {self.saldoDaConta}")
+        elif self.statusConta == True and self.saldoDaConta == 0 :
+            print(f"Você desativou sua conta.")
