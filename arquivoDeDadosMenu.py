@@ -55,7 +55,9 @@ def deletar(arq, app="", ganho=0):
         print("ERRO AO ABRIR O ARQUIVO")
     else:
         try:
-            a.write(f"{app};{ganho}\n")
+            cabecalho("DELETAR UM GANHO!")
+            for linha in a:
+                del linha.a
         except:
             print("HOUVE UM ERRO NA HORA DE INSERIR OS DADOS!")
         else:

@@ -19,8 +19,8 @@ while True:
         lerArquivo((arq))
     elif respostaUsuario == 3 :
         #OPÇAO DE DELETAR GANHOS
-
-        print("DELETAR GANHOS")
+        deletar = opçaoUsuario("ESCOLHA UM ITEM PARA EXCLUIR")
+        #print("DELETAR GANHOS")
     elif respostaUsuario == 4 :
         print("ENCERRANDO ATIVIDADES DO DIA. BOM DESCANSO! EXCELENTE TRABALHO!")
         break
