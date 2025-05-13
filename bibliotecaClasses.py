@@ -106,3 +106,37 @@ class ContaBancaria():
             print(f"Você não pode desativar sua conta, pois seu saldo está positivo. {self.saldoDaConta}")
         elif self.statusConta == True and self.saldoDaConta == 0 :
             print(f"Você desativou sua conta.")
+
+
+def formato( tam = 42):
+    return "_" * tam
+
+def cabecalho(txt):
+    print(formato())
+    print(txt.center(42))
+    print(formato())
+
+def menu(lista):
+    cabecalho("GANHOS DO DIA APPMOTO ")
+    cabecalho("MENU PRINCIPAL")
+    c = 1
+    for item in lista:
+        print(f"{c} - {item}")
+        c += 1
+    print(formato())
+    opção = opçaoUsuario("ESCOLHA UMA OPÇAO: ")
+    return opção
+
+def opçaoUsuario(msg):
+    while True:
+        try:
+            numeroUsuario = int(input(msg))
+        except (ValueError, TypeError):
+            print("\033[31mERRO: por favor, digite um numero inteiro.\033[m")
+            continue
+        except (KeyboardInterrupt):
+            print("\n\033[31mUsuário preferiu não digitar esse número.\033[m")
+            return 0
+        else:
+            return numeroUsuario
+
