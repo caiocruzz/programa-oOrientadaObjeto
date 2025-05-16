@@ -1,3 +1,4 @@
+
 class Pessoa():
     def __init__(self, nome , idade, peso):
         self.nome=nome
@@ -236,33 +237,65 @@ class Atleta():
         self.aquecido=False
 
     def aposentar(self):
-        self.aposentado=True
-        print(f"Aposentado")
-    def aquecer(self):
-        self.aquecido=True
-        print(f"Aquecido")
 
-class Corredor(Atleta):
+        if self.aposentado == True:
+            print(f"O Atleta está Aposentado!")
+
+        else:
+            self.aposentado = True
+            print(f"0 Atleta se aposentou!")
+
+
+
+
+    def aquecer(self):
+
+        if self.aposentado == True:
+            print(f"O atleta não pode aquecer pois ja está Aposentado.")
+        elif self.aposentado == False and self.aquecido == True:
+            print(f"Ele não pode aquecer, pois ja está aquecido.")
+        elif self.aposentado == False and self.aquecido == False:
+            self.aquecido = True
+            print(f"O Atleta Foi Aquecer.")
+
+
+
+
+class Corredor (Atleta):
     def __init__(self):
         super().__init__()
 
     def correr(self):
-
-        print(f"Foi correr!")
+        if self.aposentado == True:
+            print(f"Não pode correr. Ja está Aposentado.")
+        elif self.aquecido == False:
+            print(f"Ele não pode correr, pois não esta aquecido.")
+        else:
+            print(f"O Atleta Foi Correr!")
 
 class Nadador(Atleta):
     def __init__(self):
         super().__init__()
 
     def nadar(self):
-        print(f"Foi nadar!")
+        if self.aposentado == True:
+            print(f"Não pode Nadar. Ja está Aposentado.")
+        elif self.aquecido == False:
+            print(f"Ele não pode Nadar, pois não esta aquecido.")
+        else:
+            print(f"Foi nadar!")
 
 class Ciclista(Atleta):
     def __init__(self):
         super().__init__()
 
     def pedalar(self):
-        print(f"Foi pedalar")
+        if self.aposentado == True:
+            print(f"Não pode Pedalar. Ja está Aposentado.")
+        elif self.aquecido == False:
+            print(f"Ele não pode   Pedalar, pois não esta aquecido.")
+        else:
+            print(f"Foi pedalar")
 
 class Triatleta(Corredor,Nadador,Ciclista):
     def __init__(self):
